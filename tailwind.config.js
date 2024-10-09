@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        primary:'#A54257',
+        secondary:'#765628'
+      },
+      fontFamily:{
+        cormorant: ['Cormorant Garamond', 'serif'],
+        pinyon: ['Pinyon Script', 'cursive'],
+        playfair: ['Playfair Display', 'serif'],
+      }
+    },
   },
   plugins: [],
 }

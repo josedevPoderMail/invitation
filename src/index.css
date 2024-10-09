@@ -1,3 +1,129 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* src/styles/global.css */
+
+/* Cormorant Garamond */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('./fonts/cormorant-garamond/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  /* Pinyon Script */
+  @font-face {
+    font-family: 'Pinyon Script';
+    src: url('./fonts/pinyon-script/PinyonScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Playfair Display */
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('./fonts/playfair-display/PlayfairDisplay-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+  }
+  
