@@ -3,23 +3,23 @@ import "./App.css";
 function App() {
   return (
     <>
-      <section className="w-screen h-screen overflow-x-hidden scroll">
-        <div className=' h-full w-full overflow-hidden   bg-[url("/fondo.png")] bg-center bg-contain relative z-20'>
+      <section className="w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ">
+        <div className=' h-full w-full relative'>
           <VerticalRectangle
             image="/decorations/3.png"
-            prop=" w-[30%] h-[250px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
+            prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
           />
           <VerticalRectangle
             image="/decorations/2.png"
-            prop=" w-[30%] h-[250px] md:h-[350px] md:w-auto absolute -top-10 md:-right-24 md:-top-16 -right-4"
+            prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-right-24 md:-top-16 -right-4"
           />
           <HorizontalRectangle
             image="/decorations/19.png"
-            props="absolute -bottom-10 -left-10 md:-left-10  md:-bottom-3  "
+            props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
           />
           <HorizontalRectangle
             image="/decorations/20.png"
-            props="absolute -bottom-10 -right-10 md:-right-10 md:-bottom-3   "
+            props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
           />
           <Stain styles="absolute left-20 -top-20 " size="200px" />
           <Stain styles="absolute -left-[200px] bottom-[10px] " size="500px" />
@@ -40,7 +40,7 @@ function App() {
                   Nos Casamos
                 </p>
                 <p className=" text-primary text-[40px] font-pinyon ">
-                  Raquel y angel
+                  Raquel y Angel
                 </p>
                 <h6 className=" text-sm font-playfair">
                   Este día tan especial estaremos junto a <br /> nuestros seres
@@ -82,77 +82,48 @@ function App() {
             </div>
           </section>
         </div>
-
-        <div className=' h-full w-full    bg-[url("/fondo.png")] bg-center bg-contain relative'>
-          <VerticalRectangle
+        <div className="h-full w-full relative " >
+        <VerticalRectangle
             image="/decorations/3.png"
-            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
+            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-5 md:-left-24  md:-top-16 -left-10"
           />
           <VerticalRectangle
             image="/decorations/2.png"
-            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-10 md:-right-24 md:-top-16 -right-4"
+            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-5 md:-right-24 md:-top-16 -right-10"
           />
           <HorizontalRectangle
             image="/decorations/19.png"
-            props="absolute -bottom-10 -left-10 md:-left-10  md:-bottom-3  "
+            props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
           />
           <HorizontalRectangle
             image="/decorations/20.png"
-            props="absolute -bottom-10 -right-10 md:-right-10 md:-bottom-3   "
+            props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
           />
 
-          <Stain styles="absolute left-32 -top-32" size="300px" />
-          <Stain styles="absolute -left-20 -bottom-10" size="500px" />
-          <Stain styles="absolute right-32 -top-52" size="400px" />
-          <Stain styles="absolute -right-20 top-52" size="450px" />
-
-          <section className=" h-full w-full flex justify-center items-center">
-            <div className="xl:w-[50%] w-[90%] h-[60%] relative text-center flex flex-col justify-evenly">
-              {/* Mensaje de agradecimiento */}
-              <div className="flex flex-col gap-6">
-                <h2 className="font-pinyon text-primary/60 font-semibold xl:text-5xl text-5xl">
-                  En este Día especial <br /> te invitamos a celebrar nuestra unión
-                </h2>
-                <h3 className="font-cormorant text-black/80  text-[20px] font-bold">
-                  Con la bendición de Dios y de nuestros <br /> padres
-                </h3>
-              </div>
-
-              <div className="">
-                {/* Nombres de los padres de la novia */}
-                <aside className="my-10">
-                  <h3 className="font-cormorant font-bold text-4xl line-clamp-6 mb-4">
-                    Padres de la novia
-                  </h3>
-                  <p className="font-cormorant text-2xl text-black/80  font-bold">
-                    Sr. Roberto Bolaños Ibarra
-                  </p>
-                  <p className="font-cormorant text-2xl text-black/80  font-bold">
-                    Sra. Verónica Corso Rios
-                  </p>
-                </aside>
-                <aside>
-                  <h3 className="font-cormorant font-bold text-4xl line-clamp-6 mb-4">
-                    Padres del novio
-                  </h3>
-                  <p className="font-cormorant   text-2xl text-black/80  font-bold">
-                    Sr. Rigoberto Hernández García
-                  </p>
-                  <p className="font-cormorant   text-2xl text-black/80  font-bold">
-                    Sra. Clara Luz Hernández Pérez
-                  </p>
-                </aside>
-              </div>
-              <ContentRoses
-                styles="xl:h-48 xl:w-[120px]  h-[180px] bottom-[200px]    absolute xl:-left-10  xl:top-[50%] -left-10 -rotate-[20deg] "
-                image="/decorations/5.png"
-              />
-              <ContentRoses
-                styles="xl:h-56 xl:w-[120px]  h-[180px] bottom-[100px]    absolute xl:-right-10 xl:top-[35%] -right-8  xl:rotate-45"
-                image="/decorations/4.png"
-              />
+        <section className="w-full h-full flex flex-col items-center justify-center gap-10 ">
+          {/* Textos de gracias */}
+          <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
+            <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">En este día especial <br /> te invitamos a celebrar  nuestra unión</h2>
+            <p className="text-center font-cormorant font-black/80 text-[20px] xl:text-2xl">Con la bendición de Dios y de nuestros <br /> padres</p>
+          </div>
+          <div className="w-full xl:w-[60%]  flex flex-col gap-10 justify-evenly items-center ">
+            {/* Nombre de los padres de la novia */}
+            <div className="w-full text-center">
+            <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">Padres de la novia</h2>
+              <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sr. Roberto Bolaños Ibarra</h3>
+              <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sra. Verónica Corzo Rios</h3>
             </div>
-          </section>
+
+            {/* Nombres de los padres del novio*/}
+            <div className="w-full text-center">
+            <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">Padres del novio</h2>
+              <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sr. Rigoberto Hernández García</h3>
+              <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sra. Clara Luz Hernández Pérez</h3>
+            </div>
+          </div>
+        </section>
+
+
         </div>
       </section>
     </>
@@ -173,7 +144,7 @@ const ContentRoses = ({ image, styles }) => {
 
 const LineStyle = () => {
   return (
-    <span className="p-0 m-0 h-1  w-full bg-gradient-to-r from-[#ddb92b8f] to-[#8f6d1c] "></span>
+    <span className="p-0 m-0 h-[2px]  w-full bg-gradient-to-r from-[#ddb92b8f] to-[#8f6d1c] "></span>
   );
 };
 const VerticalRectangle = ({ prop, image }) => {
