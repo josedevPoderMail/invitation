@@ -1,10 +1,12 @@
 import "./App.css";
+import Countdown from "react-countdown";
+import { CustomCounter } from "./components/Counter";
 
 function App() {
   return (
     <>
       <section className="w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ">
-        <div className=' h-full w-full relative'>
+        <div className=" h-full w-full relative">
           <VerticalRectangle
             image="/decorations/3.png"
             prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
@@ -82,8 +84,8 @@ function App() {
             </div>
           </section>
         </div>
-        <div className="h-full w-full relative " >
-        <VerticalRectangle
+        <div className="h-full w-full relative ">
+          <VerticalRectangle
             image="/decorations/3.png"
             prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-5 md:-left-24  md:-top-16 -left-10"
           />
@@ -100,30 +102,79 @@ function App() {
             props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
           />
 
-        <section className="w-full h-full flex flex-col items-center justify-center gap-10 ">
-          {/* Textos de gracias */}
-          <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
-            <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">En este día especial <br /> te invitamos a celebrar  nuestra unión</h2>
-            <p className="text-center font-cormorant font-black/80 text-[20px] xl:text-2xl">Con la bendición de Dios y de nuestros <br /> padres</p>
-          </div>
-          <div className="w-full xl:w-[60%]  flex flex-col gap-10 justify-evenly items-center ">
-            {/* Nombre de los padres de la novia */}
-            <div className="w-full text-center">
-            <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">Padres de la novia</h2>
-              <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sr. Roberto Bolaños Ibarra</h3>
-              <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sra. Verónica Corzo Rios</h3>
+          <section className="w-full h-full flex flex-col items-center justify-center gap-10 ">
+            {/* Textos de gracias */}
+            <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
+              <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">
+                En este día especial <br /> te invitamos a celebrar nuestra
+                unión
+              </h2>
+              <p className="text-center font-cormorant font-black/80 text-[20px] xl:text-2xl">
+                Con la bendición de Dios y de nuestros <br /> padres
+              </p>
             </div>
+            <div className="w-full xl:w-[60%]  flex flex-col gap-10 justify-evenly items-center ">
+              {/* Nombre de los padres de la novia */}
+              <div className="w-full text-center">
+                <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">
+                  Padres de la novia
+                </h2>
+                <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">
+                  Sr. Roberto Bolaños Ibarra
+                </h3>
+                <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">
+                  Sra. Verónica Corzo Rios
+                </h3>
+              </div>
 
-            {/* Nombres de los padres del novio*/}
-            <div className="w-full text-center">
-            <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">Padres del novio</h2>
-              <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sr. Rigoberto Hernández García</h3>
-              <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">Sra. Clara Luz Hernández Pérez</h3>
+              {/* Nombres de los padres del novio*/}
+              <div className="w-full text-center">
+                <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">
+                  Padres del novio
+                </h2>
+                <h3 className=" font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">
+                  Sr. Rigoberto Hernández García
+                </h3>
+                <h3 className="font-cormorant  text-xl xl:text-3xl  text-black/70 font-semibold">
+                  Sra. Clara Luz Hernández Pérez
+                </h3>
+              </div>
             </div>
+          </section>
+        </div>
+        <div className="h-full w-full relative ">
+          <VerticalRectangle
+            image="/decorations/3.png"
+            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-5 md:-left-24  md:-top-16 -left-10"
+          />
+          <VerticalRectangle
+            image="/decorations/2.png"
+            prop=" w-[30%] h-[200px] md:h-[350px] md:w-auto absolute -top-5 md:-right-24 md:-top-16 -right-10"
+          />
+          <HorizontalRectangle
+            image="/decorations/19.png"
+            props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+          />
+          <HorizontalRectangle
+            image="/decorations/20.png"
+            props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+          />
+
+          <div className="w-full h-full flex flex-col justify-center items-center ">
+            <section className="w-full h-full xl:w-[60%] xl:h-[80%] flex flex-col 
+            xl:gap-10 gap-10 
+            justify-center items-center  ">
+              <h2 className="font-pinyon text-primary   text-[90px]  xl:text-[180px] tracking-widest">
+                Faltan
+              </h2>
+              <span className=" flex justify-around w-full">
+              <CustomCounter/>
+              </span>
+              <h3 className="font-pinyon text-primary   text-5xl  xl:text-[80px]">
+                para nuestro día
+              </h3>
+            </section>
           </div>
-        </section>
-
-
         </div>
       </section>
     </>
