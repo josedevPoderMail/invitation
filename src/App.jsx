@@ -1,6 +1,11 @@
 import "./App.css";
 import Countdown from "react-countdown";
 import { CustomCounter } from "./components/Counter";
+import { Stain } from "./components/Stain";
+import { HorizontalRectangle } from "./components/Horizontalrectangle";
+import { VerticalRectangle } from "./components/VerticalRectangle";
+import { LineStyle } from "./components/LineStyle";
+import { ContentRoses } from "./components/ContentRoses";
 
 function App() {
   return (
@@ -44,7 +49,7 @@ function App() {
                 <p className=" text-primary text-[40px] font-pinyon ">
                   Raquel y Angel
                 </p>
-                <h6 className=" text-sm font-playfair">
+                <h6 className=" text-xl font-playfair">
                   Este día tan especial estaremos junto a <br /> nuestros seres
                   queridos{" "}
                 </h6>
@@ -101,7 +106,12 @@ function App() {
             image="/decorations/20.png"
             props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
           />
-
+          <Stain styles="absolute left-20 -top-20 " size="200px" />
+          <Stain styles="absolute -left-[200px] bottom-[10px] " size="500px" />
+          <Stain
+            styles="absolute -right-40 top-0 bottom-0 m-auto"
+            size="650px"
+          />
           <section className="w-full h-full flex flex-col items-center justify-center gap-10 ">
             {/* Textos de gracias */}
             <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
@@ -109,7 +119,7 @@ function App() {
                 En este día especial <br /> te invitamos a celebrar nuestra
                 unión
               </h2>
-              <p className="text-center font-cormorant font-black/80 text-[20px] xl:text-2xl">
+              <p className="text-center font-cormorant font-black/80 text-xl xl:text-2xl">
                 Con la bendición de Dios y de nuestros <br /> padres
               </p>
             </div>
@@ -159,16 +169,23 @@ function App() {
             image="/decorations/20.png"
             props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
           />
+          <Stain styles="absolute left-20 -top-20 " size="200px" />
+          <Stain
+            styles="absolute -right-40 top-0 bottom-0 m-auto"
+            size="650px"
+          />
 
           <div className="w-full h-full flex flex-col justify-center items-center ">
-            <section className="w-full h-full xl:w-[60%] xl:h-[80%] flex flex-col 
+            <section
+              className="w-full h-full xl:w-[60%] xl:h-[80%] flex flex-col 
             xl:gap-10 gap-10 
-            justify-center items-center  ">
+            justify-center items-center  "
+            >
               <h2 className="font-pinyon text-primary   text-[90px]  xl:text-[180px] tracking-widest">
                 Faltan
               </h2>
               <span className=" flex justify-around w-full">
-              <CustomCounter/>
+                <CustomCounter />
               </span>
               <h3 className="font-pinyon text-primary   text-5xl  xl:text-[80px]">
                 para nuestro día
@@ -176,66 +193,281 @@ function App() {
             </section>
           </div>
         </div>
+
+        {/* Ubicacion de la boda */}
+        <div className="w-full h-full relative">
+          <div className="w-full h-[98%] relative  ">
+            <VerticalRectangle
+              image="/decorations/9.png"
+              prop="  h-[120px] xl:h-[200px] md:w-auto 
+        rotate-[30deg]
+            absolute  xl:-left-5   xl:top-0 -left-10 top-0"
+            />
+            <VerticalRectangle
+              image="/decorations/9.png"
+              prop="  h-[220px] md:h-[300px] md:w-auto 
+            -rotate-[30deg]
+            absolute top-[20%] xl:-right-6 xl:top-4 -right-20 "
+            />
+
+            <HorizontalRectangle
+              image="/decorations/19.png"
+              props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+            />
+            <HorizontalRectangle
+              image="/decorations/20.png"
+              props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+            />
+            <Stain styles="absolute left-20 -top-20 " size="200px" />
+            <Stain
+              styles="absolute -left-[200px] bottom-[10px] "
+              size="500px"
+            />
+            <Stain
+              styles="absolute -right-40 top-0 bottom-0 m-auto"
+              size="650px"
+            />
+          </div>
+          <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0  flex justify-center">
+            {/* Informacion de la ubicacion */}
+            <section className="w-[90%] xl:w-[60%] h-full  flex flex-col justify-center items-center gap-10 py-4">
+              <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl text-center  tracking-tighter">
+                Lugar del <br className="xl:hidden block" /> evento
+              </h2>
+              {/* imagen del lugar del evento */}
+              <div className="h-[30%] xl:h-1/2 xl:w-[60%] w-full  rounded-2xl overflow-hidden border-4 border-white  ">
+                <img
+                  className="w-full h-full"
+                  src="\decorations\salon-campeador.jpg"
+                  alt="Imagen del salon del evento"
+                />
+              </div>
+              {/*  Informacion del lugar y el call to action almapa de google */}
+              <div className="w-full flex flex-col items-center gap-4">
+                <h2 className="font-cormorant text-black text-4xl  xl:text-5xl text-center font-bold">
+                  Salón Campeador
+                </h2>
+                <h3 className="text-center text-xl xl:text-2xl text-black/80 font-semibold font-cormorant">
+                  2a Calle Norte Poniente Num. 134. Barrio La Candelaria, 30060{" "}
+                  <br className="hidden xl:block" />
+                  Comitán De Dominguez, Chiapas
+                </h3>
+                <button className=" font-cormorant bg-[#3C281D] text-white border-4 py-3 px-20 border-white rounded-xl">
+                  Ver Mapa
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div className="w-full h-full ">
+          <section className="w-full h-full relative">
+            <VerticalRectangle
+              image="/decorations/10.png"
+              prop="  h-[120px] xl:h-[200px] md:w-auto 
+            absolute  xl:-left-5   xl:top-0 -left-14 -top-5"
+            />
+            <VerticalRectangle
+              image="/decorations/10.png"
+              prop="  h-[100px] xl:h-[200px] md:w-auto 
+            absolute  xl:-right-5   xl:top-0 -right-10 top-20"
+            />
+
+            <HorizontalRectangle
+              image="/decorations/19.png"
+              props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+            />
+            <HorizontalRectangle
+              image="/decorations/20.png"
+              props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+            />
+            <Stain
+              styles="absolute -left-[100px] bottom-[10px] "
+              size="500px"
+            />
+            <Stain
+              styles="absolute -right-40 top-0 -bottom-24 m-auto"
+              size="400px"
+            />
+            <div className="w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+              {/* horarios e iconos */}
+              <section className=" h-[70%] xl:h-[70%]  w-full xl:w-1/2  flex flex-col gap-10 justify-evenly items-center ">
+                <h2 className="font-pinyon text-primary xl:text-[90px] text-[70px] ">
+                  Horarios
+                </h2>
+                <h3 className="font-cormorant text-black text-5xl text-center font-semibold">
+                  Recepción <br /> <p>05:30 pm</p>
+                </h3>
+                <img
+                  className="object-cover h-[120px] xl:h-[220px]"
+                  src="\decorations\11.png"
+                  alt="Imagen de una puertas"
+                />
+                <h4 className="xl:hidden block text-xl font-cormorant text-black font-semibold">
+                  ¡No llegues tarde!
+                </h4>
+              </section>
+            </div>
+          </section>
+        </div>
+
+        {/* Horarios de cremonia y convivio */}
+        <div className="w-full h-full ">
+          <section className="w-full h-full relative">
+            <VerticalRectangle
+              image="/decorations/10.png"
+              prop="  h-[120px] xl:h-[200px] md:w-auto 
+            absolute  xl:-left-5   xl:top-0 -left-14 -top-5"
+            />
+            <VerticalRectangle
+              image="/decorations/10.png"
+              prop="  h-[100px] xl:h-[200px] md:w-auto 
+            absolute  xl:-right-5   xl:top-0 -right-10 top-20"
+            />
+
+            <HorizontalRectangle
+              image="/decorations/19.png"
+              props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+            />
+            <HorizontalRectangle
+              image="/decorations/20.png"
+              props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+            />
+
+            <div className="w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+              {/* Horarios  */}
+              <section className="w-full xl:w-[70%]   relative   overflow-hidden  flex xl:flex-row flex-col gap-10 ">
+                {/* Horario de la ceremonia */}
+                <div className="w-full  xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center">
+                  <Stain styles="absolute top-20" size="150px" />
+                  <div className="text-center tras text-2xl xl:text-4xl font-cormorant   font-semibold ">
+                    <h2>Ceremonia</h2>
+                    <p>06:00 pm</p>
+                  </div>
+                  <img
+                    className="object-cover  h-[120px] xl:h-[300px]"
+                    src="\decorations\12.png"
+                    alt="Imagen de dos siluetas de hombre y mujer"
+                  />
+                </div>
+                {/* Horario del evento */}
+                <div className="w-full xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center">
+                  <Stain styles="absolute  top-20" size="150px" />
+                  <div className="text-center  text-2xl xl:text-4xl font-cormorant   font-semibold ">
+                    <h2>Convivio</h2>
+                    <p>08:00 pm</p>
+                  </div>
+                  <img
+                    className="object-cover  h-[120px] xl:h-[300px]"
+                    src="\decorations\13.png"
+                    alt="Imagen de copas de vino"
+                  />
+                </div>
+                <ContentRoses
+                  styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[200px]    absolute xl:-left-10  xl:top-[50%] -left-10 rotate-45 xl:rotate-0 "
+                  image="/decorations/4.png"
+                />
+                <ContentRoses
+                  styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[100px]    absolute xl:-right-10 xl:top-[35%] -right-8  xl:rotate-45"
+                  image="/decorations/4.png"
+                />
+              </section>
+            </div>
+          </section>
+        </div>
+
+        <div className="w-full h-full ">
+          <section className="w-full h-full relative">
+            <VerticalRectangle
+              image="/decorations/3.png"
+              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
+            />
+            <VerticalRectangle
+              image="/decorations/2.png"
+              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-right-24 md:-top-16 -right-4"
+            />
+            <HorizontalRectangle
+              image="/decorations/19.png"
+              props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+            />
+            <HorizontalRectangle
+              image="/decorations/20.png"
+              props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+            />
+
+            <div className="w-full h-full 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+              <section className="xl:w-[80%] bg-red-300 w-full  h-[80%]  flex flex-col items-center justify-center gap-20">
+                {/* Titulo de la secion y mensaje*/}
+                <div className="flex flex-col gap-2 text-center">
+                  <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl">
+                    Estas invitado
+                  </h2>
+                  <p className="text-black font-cormorant xl:text-2xl text-xl font-semibold">
+                    Estaremos muy agradecios que confirmen su asistencia <br />
+                    para poder asignarles mesa junto a sus familiares
+                  </p>
+                </div>
+                {/* Formulario de invitados */}
+                <div className="flex gap-20 w-full h-auto  justify-center">
+                  {/* Input del representante */}
+                  <div
+                    className="bg-primary rounded-2xl text-white font-bold text-center
+                  p-5 justify-center items-center
+                  font-cormorant flex flex-col gap-10"
+                  >
+                    <h3 className="text-xl font-cormorant ">
+                      Representante de <br /> la familia
+                    </h3>
+                    <input
+                      type="text"
+                      placeholder="Jose Alejandro Cruz Perez"
+                    />
+                  </div>
+                  {/* Numero de acompaniantes */}
+                  <div
+                    className="bg-primary rounded-2xl text-white font-bold text-center
+                  p-5 justify-center items-center
+                  font-cormorant flex flex-col gap-10"
+                  >
+                    <h2 className="font-cormorant text-xl">
+                      NO. De <br /> acompañantes
+                    </h2>
+                    <CompanionsInput />
+                  </div>
+                </div>
+                {/* Boton de confirmar */}
+                <button
+                  className="bg-primary px-10 py-4 text-center font-cormorant
+                rounded-2xl
+                text-xl text-white font-semibold"
+                >
+                  Confirmar mis datos
+                </button>
+              </section>
+            </div>
+          </section>
+        </div>
       </section>
     </>
   );
 }
-
-const ContentRoses = ({ image, styles }) => {
-  return (
-    <div className={`  ${styles}`}>
-      <img
-        className="object-fill h-full "
-        src={image}
-        alt="Imagen de una rosa"
-      />
-    </div>
-  );
-};
-
-const LineStyle = () => {
-  return (
-    <span className="p-0 m-0 h-[2px]  w-full bg-gradient-to-r from-[#ddb92b8f] to-[#8f6d1c] "></span>
-  );
-};
-const VerticalRectangle = ({ prop, image }) => {
-  return (
-    <div className={` ${prop}`}>
-      <img
-        className="h-full w-full object-cover"
-        src={image}
-        alt="Imagen de una rosa como decoracion"
-      />
-    </div>
-  );
-};
-
-const HorizontalRectangle = ({ image, props }) => {
-  return (
-    <div className={`w-1/2 md:h-[300px] md:w-auto   ${props}`}>
-      <img
-        className="h-full w-full object-cover "
-        src={image}
-        alt="Imagen de una rosa como decoracion"
-      />
-    </div>
-  );
-};
-const Stain = ({ styles, size }) => {
+// TODO: Terminar esto: Disenio
+const CompanionsInput = () => {
   return (
     <>
-      {/* Stain */}
-      <div
-        style={{ height: size, width: size }}
-        className={` ${styles}  xl:block hidden  `}
-      >
-        <img
-          className={` h-full w-full `}
-          src="\decorations\7.png"
-          alt="Imagen de mancha ara decoracion"
-        />
+      <div className="flex gap-4">
+        <button className="  bg-white p-2 rounded-full  ">
+          <img src="\src\assets\svgs\increment.svg" alt="" />
+        </button>
+        <p className="text-2xl text-center font-bold  font-cormorant p-0 m-0">
+          01
+        </p>
+        <button className="  bg-white p-2 rounded-full  ">
+          <img src="\src\assets\svgs\decrement.svg" alt="" />
+        </button>
       </div>
     </>
   );
 };
+
 export default App;

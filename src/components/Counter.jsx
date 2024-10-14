@@ -39,22 +39,22 @@ export const CustomCounter = () => {
         <div className="text-2xl xl:text-6xl flex items-center justify-center gap-2">
           <span className="flex flex-col items-center gap-1">
             <p className="font-bold font-cormorant text-4xl xl:text-6xl">{time.days}</p>
-            <span className="text-sm xl:text-xl font-cormorant">DÍAS</span>
+            <span className="text-xl xl:text-xl font-cormorant">DÍAS</span>
           </span>
           <span className="">:</span>
           <span className="flex flex-col items-center gap-1">
             <p className="font-bold font-cormorant text-4xl xl:text-6xl">{time.hours}</p>
-            <span className="text-sm xl:text-xl font-cormorant">HORAS</span>
+            <span className="text-xl xl:text-xl font-cormorant">HORAS</span>
           </span>
           <span className="">:</span>
           <span className="flex flex-col items-center gap-1">
             <p className="font-bold font-cormorant text-4xl xl:text-6xl">{time.minutes}</p>
-            <span className="text-sm xl:text-xl font-cormorant">MINUTOS</span>
+            <span className="text-xl xl:text-xl font-cormorant">MINUTOS</span>
           </span>
           <span className="">:</span>
           <span className="flex flex-col items-center gap-1">
             <p className="font-bold font-cormorant text-4xl xl:text-6xl">{time.seconds}</p>
-            <span className="text-sm xl:text-xl font-cormorant">SEGUNDOS</span>
+            <span className="text-xl xl:text-xl font-cormorant">SEGUNDOS</span>
           </span>
         </div>
       </div>
