@@ -260,7 +260,7 @@ function App() {
           </div>
         </div>
 
-        <div className="w-full h-full ">
+        <div className="w-full h-full my-10">
           <section className="w-full h-full relative">
             <VerticalRectangle
               image="/decorations/10.png"
@@ -376,7 +376,7 @@ function App() {
           </section>
         </div>
 
-        <div className="w-full h-full ">
+        <div className="w-full h-full my-10 ">
           <section className="w-full h-full relative">
             <VerticalRectangle
               image="/decorations/3.png"
@@ -395,8 +395,16 @@ function App() {
               props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
             />
 
-            <div className="w-full h-full 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
-              <section className="xl:w-[80%] bg-red-300 w-full  h-[80%]  flex flex-col items-center justify-center gap-20">
+            <div className=" w-full h-full 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+              <section className="xl:w-[80%]  w-full  h-[80%] relative flex flex-col items-center justify-center gap-10">
+              <ContentRoses
+                  styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[200px]    absolute xl:-left-10  xl:top-[50%] -left-10 rotate-45 xl:rotate-0 "
+                  image="/decorations/4.png"
+                />
+                <ContentRoses
+                  styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[100px]    absolute xl:-right-10 xl:top-[35%] -right-8  xl:rotate-45"
+                  image="/decorations/4.png"
+                />
                 {/* Titulo de la secion y mensaje*/}
                 <div className="flex flex-col gap-2 text-center">
                   <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl">
@@ -408,17 +416,18 @@ function App() {
                   </p>
                 </div>
                 {/* Formulario de invitados */}
-                <div className="flex gap-20 w-full h-auto  justify-center">
+                <div className="flex xl:flex-row flex-col gap-20 w-[60%] xl:w-full  h-auto  justify-center">
                   {/* Input del representante */}
                   <div
                     className="bg-primary rounded-2xl text-white font-bold text-center
                   p-5 justify-center items-center
-                  font-cormorant flex flex-col gap-10"
+                  font-cormorant flex flex-col gap-2 xl:gap-10"
                   >
                     <h3 className="text-xl font-cormorant ">
                       Representante de <br /> la familia
                     </h3>
                     <input
+                    className="border-0 bg-primary border-b-2  placeholder:text-white/80"
                       type="text"
                       placeholder="Jose Alejandro Cruz Perez"
                     />
@@ -427,7 +436,7 @@ function App() {
                   <div
                     className="bg-primary rounded-2xl text-white font-bold text-center
                   p-5 justify-center items-center
-                  font-cormorant flex flex-col gap-10"
+                  font-cormorant flex flex-col gap-2 xl:gap-10"
                   >
                     <h2 className="font-cormorant text-xl">
                       NO. De <br /> acompañantes
@@ -445,6 +454,34 @@ function App() {
                 </button>
               </section>
             </div>
+          </section>
+        </div>
+
+
+        <div className="w-full h-full bg-[url('public/decorations/pareja.jpg')] bg-cover bg-center ">
+
+          <section className="w-full h-full relative">
+            <div className="w-full xl:w-1/2 h-[18%] flex flex-col justify-center items-center  bg-[url('public/decorations/15.png')] absolute left-0 right-0 m-auto rounded-br-[100px] rounded-bl-[100px]">
+              <h2 className="text-center text-4xl font-cormorant">Nuestro amor es una historia que <br /> recién comienza a escribirse</h2>
+              <img className=""  src="public/decorations/14.png" alt="imagen de una decoracion" />
+            </div>
+            <VerticalRectangle
+              image="/decorations/16.png"
+              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute left-0"
+            />
+            <VerticalRectangle
+              image="/decorations/17.png"
+              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute right-0"
+            />
+            <HorizontalRectangle
+              image="/decorations/16.png"
+              props="absolute left-0 bottom-0 -rotate-90  "
+            />
+            <HorizontalRectangle
+              image="/decorations/17.png"
+              props="absolute bottom-0 right-0 rotate-90   "
+            />
+            
           </section>
         </div>
       </section>
@@ -466,6 +503,8 @@ const CompanionsInput = () => {
           <img src="\src\assets\svgs\decrement.svg" alt="" />
         </button>
       </div>
+
+
     </>
   );
 };
