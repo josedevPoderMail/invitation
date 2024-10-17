@@ -184,7 +184,7 @@ function App() {
               <h2 className="font-pinyon text-primary   text-[90px]  xl:text-[180px] tracking-widest">
                 Faltan
               </h2>
-              <span className=" flex justify-around w-full">
+              <span className=" flex justify-around w-[90%]">
                 <CustomCounter />
               </span>
               <h3 className="font-pinyon text-primary   text-5xl  xl:text-[80px]">
@@ -377,7 +377,7 @@ function App() {
         </div>
 
         <div className="w-full h-full my-10 ">
-          <section className="w-full h-full relative">
+          <section className="w-full h-full relative ">
             <VerticalRectangle
               image="/decorations/3.png"
               prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
@@ -395,7 +395,7 @@ function App() {
               props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
             />
 
-            <div className=" w-full h-full 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+            <div className=" w-full h-[90%] 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
               <section className="xl:w-[80%]  w-full  h-[80%] relative flex flex-col items-center justify-center gap-10">
               <ContentRoses
                   styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[200px]    absolute xl:-left-10  xl:top-[50%] -left-10 rotate-45 xl:rotate-0 "
@@ -410,13 +410,13 @@ function App() {
                   <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl">
                     Estas invitado
                   </h2>
-                  <p className="text-black font-cormorant xl:text-2xl text-xl font-semibold">
+                  <p className="text-black font-cormorant xl:text-2xl text-md font-semibold">
                     Estaremos muy agradecios que confirmen su asistencia <br />
                     para poder asignarles mesa junto a sus familiares
                   </p>
                 </div>
                 {/* Formulario de invitados */}
-                <div className="flex xl:flex-row flex-col gap-20 w-[60%] xl:w-full  h-auto  justify-center">
+                <div className="flex xl:flex-row flex-col xl:gap-20 gap-4 w-[60%] xl:w-full  h-auto  justify-center">
                   {/* Input del representante */}
                   <div
                     className="bg-primary rounded-2xl text-white font-bold text-center
@@ -458,25 +458,27 @@ function App() {
         </div>
 
 
-        <div className="w-full h-full bg-[url('public/decorations/pareja.jpg')] bg-cover bg-center ">
+        <div className="w-full h-[1200px] bg-[url('public/decorations/pareja.jpg')]   bg-cover bg-center ">
 
           <section className="w-full h-full relative">
-            <div className="w-full xl:w-1/2 h-[18%] flex flex-col justify-center items-center  bg-[url('public/decorations/15.png')] absolute left-0 right-0 m-auto rounded-br-[100px] rounded-bl-[100px]">
-              <h2 className="text-center text-4xl font-cormorant">Nuestro amor es una historia que <br /> recién comienza a escribirse</h2>
-              <img className=""  src="public/decorations/14.png" alt="imagen de una decoracion" />
+     
+            <div className="  w-[95%] xl:w-[60%]  flex flex-col justify-center items-center 
+            bg-cover bg-[url('public/decorations/15.png')] 
+            absolute left-0 right-0 m-auto rounded-br-[40px] rounded-bl-[40px] ">
+                <h2 className="p-0 m-0 text-center text-2xl xl:text-3xl font-cormorant font-bold">Eclesiastés 4:9-12</h2>
+              <p  className="text-center text-md xl:text-xl font-cormorant">
+              9 La verdad, «más valen dos que uno», porque sacan más provecho de lo que hacen. 
+10 Además, si uno de ellos se tropieza, el otro puede levantarlo. Pero ¡pobre del que cae y no tiene quien lo ayude a levantarse! 
+11 Y también, si dos se acuestan juntos, entran en calor; pero uno solo se muere de frío. 12 Una sola persona puede ser vencida, pero dos ya pueden defenderse; y si tres unen sus fuerzas, ya no es fácil derrotarlas
+              </p>
+              <img className="w-[70%] "  src="public/decorations/14.png" alt="imagen de una decoracion" />
             </div>
+        
             <VerticalRectangle
               image="/decorations/16.png"
-              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute left-0"
+              prop=" w-[30%] h-[100px] md:h-[350px] md:w-auto absolute xl:left-0 -left-4 -top-2"
             />
-            <VerticalRectangle
-              image="/decorations/17.png"
-              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute right-0"
-            />
-            <HorizontalRectangle
-              image="/decorations/16.png"
-              props="absolute left-0 bottom-0 -rotate-90  "
-            />
+         
             <HorizontalRectangle
               image="/decorations/17.png"
               props="absolute bottom-0 right-0 rotate-90   "
