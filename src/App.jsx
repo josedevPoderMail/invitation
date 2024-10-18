@@ -1,13 +1,46 @@
 import "./App.css";
-import Countdown from "react-countdown";
-import { CustomCounter } from "./components/Counter";
+ import { CustomCounter } from "./components/Counter";
 import { Stain } from "./components/Stain";
 import { HorizontalRectangle } from "./components/Horizontalrectangle";
 import { VerticalRectangle } from "./components/VerticalRectangle";
 import { LineStyle } from "./components/LineStyle";
 import { ContentRoses } from "./components/ContentRoses";
+import { useState } from "react";
+import { initializeApp } from "firebase/app";
+import { collection,  getFirestore, addDoc } from 'firebase/firestore';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAKYzENkbZYz1X23axJU0_4RvxHw3PvZWQ",
+    authDomain: "invitation-e71f9.firebaseapp.com",
+    projectId: "invitation-e71f9",
+    storageBucket: "invitation-e71f9.appspot.com",
+    messagingSenderId: "944468801010",
+    appId: "1:944468801010:web:7c285fa821cdac30efe76b",
+    measurementId: "G-YB1XDX4X81"
+  };
 function App() {
+  const [numberCompanions, setNumberCompanions] = useState(0)
+  const [representativeName, setRepresentativeName] = useState('')
+  const app = initializeApp(firebaseConfig);
+
+   const db = getFirestore(app)
+
+  const handleSubmit =async  ()=>{
+    const res = await addDoc(collection(db, 'invitations'),{
+      name:   representativeName,
+      companions:  parseInt(numberCompanions)
+      });
+      setRepresentativeName('')
+      setNumberCompanions(0)
+  }
+
+  const addCompanion = ()=>{
+    setNumberCompanions(numberCompanions + 1)
+  }
+  const removeCompanion = ()=>{
+    setNumberCompanions(numberCompanions - 1)
+  }
+
   return (
     <>
       <section className="w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ">
@@ -380,11 +413,11 @@ function App() {
           <section className="w-full h-full relative ">
             <VerticalRectangle
               image="/decorations/3.png"
-              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-left-24  md:-top-16 -left-4"
+              prop=" w-[30%] h-[100px] md:h-[350px] md:w-auto absolute -top-12 md:-left-24  md:-top-16 -left-4"
             />
             <VerticalRectangle
               image="/decorations/2.png"
-              prop=" w-[30%] h-[150px] md:h-[350px] md:w-auto absolute -top-10 md:-right-24 md:-top-16 -right-4"
+              prop=" w-[30%] h-[100px] md:h-[350px] md:w-auto absolute -top-12 md:-right-24 md:-top-16 -right-4"
             />
             <HorizontalRectangle
               image="/decorations/19.png"
@@ -397,7 +430,7 @@ function App() {
 
             <div className=" w-full h-[90%] 5 absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
               <section className="xl:w-[80%]  w-full  h-[80%] relative flex flex-col items-center justify-center gap-10">
-              <ContentRoses
+                <ContentRoses
                   styles=" xl:hidden block xl:h-44 xl:w-[120px]  h-[180px] bottom-[200px]    absolute xl:-left-10  xl:top-[50%] -left-10 rotate-45 xl:rotate-0 "
                   image="/decorations/4.png"
                 />
@@ -427,7 +460,16 @@ function App() {
                       Representante de <br /> la familia
                     </h3>
                     <input
-                    className="border-0 bg-primary border-b-2  placeholder:text-white/80"
+                      onChange={
+                        (e) => {
+                          setRepresentativeName(e.target.value)
+                        }
+                      }
+                      value={representativeName}
+                      className="border-0 bg-primary border-b-2
+                        placeholder:text-white/80 focus:outline-none
+                          xl:p-2
+                        "
                       type="text"
                       placeholder="Jose Alejandro Cruz Perez"
                     />
@@ -441,14 +483,18 @@ function App() {
                     <h2 className="font-cormorant text-xl">
                       NO. De <br /> acompañantes
                     </h2>
-                    <CompanionsInput />
+                    <CompanionsInput add={addCompanion} remove={removeCompanion} companions={numberCompanions}  />
                   </div>
                 </div>
                 {/* Boton de confirmar */}
                 <button
-                  className="bg-primary px-10 py-4 text-center font-cormorant
+                  onClick={handleSubmit}  
+                  disabled={representativeName.length === 0}
+                  className={`
+                    ${representativeName.length === 0 ? 'bg-gray-300' : 'bg-primary'}
+                    bg-primary px-10 py-4 text-center font-cormorant
                 rounded-2xl
-                text-xl text-white font-semibold"
+                text-xl text-white font-semibold`}
                 >
                   Confirmar mis datos
                 </button>
@@ -457,56 +503,104 @@ function App() {
           </section>
         </div>
 
-
         <div className="w-full h-[1200px] bg-[url('public/decorations/pareja.jpg')]   bg-cover bg-center ">
-
           <section className="w-full h-full relative">
-     
-            <div className="  w-[95%] xl:w-[60%]  flex flex-col justify-center items-center 
+            <div
+              className="  w-[95%] xl:w-[60%]  flex flex-col justify-center items-center 
             bg-cover bg-[url('public/decorations/15.png')] 
-            absolute left-0 right-0 m-auto rounded-br-[40px] rounded-bl-[40px] ">
-                <h2 className="p-0 m-0 text-center text-2xl xl:text-3xl font-cormorant font-bold">Eclesiastés 4:9-12</h2>
-              <p  className="text-center text-md xl:text-xl font-cormorant">
-              9 La verdad, «más valen dos que uno», porque sacan más provecho de lo que hacen. 
-10 Además, si uno de ellos se tropieza, el otro puede levantarlo. Pero ¡pobre del que cae y no tiene quien lo ayude a levantarse! 
-11 Y también, si dos se acuestan juntos, entran en calor; pero uno solo se muere de frío. 12 Una sola persona puede ser vencida, pero dos ya pueden defenderse; y si tres unen sus fuerzas, ya no es fácil derrotarlas
+            absolute left-0 right-0 m-auto rounded-br-[40px] rounded-bl-[40px] "
+            >
+              <h2 className="p-0 m-0 text-center text-2xl xl:text-3xl font-cormorant font-bold">
+                Eclesiastés 4:9-12
+              </h2>
+              <p className="text-center text-md xl:text-xl font-cormorant">
+                9 La verdad, «más valen dos que uno», porque sacan más provecho
+                de lo que hacen. 10 Además, si uno de ellos se tropieza, el otro
+                puede levantarlo. Pero ¡pobre del que cae y no tiene quien lo
+                ayude a levantarse! 11 Y también, si dos se acuestan juntos,
+                entran en calor; pero uno solo se muere de frío. 12 Una sola
+                persona puede ser vencida, pero dos ya pueden defenderse; y si
+                tres unen sus fuerzas, ya no es fácil derrotarlas
               </p>
-              <img className="w-[70%] "  src="public/decorations/14.png" alt="imagen de una decoracion" />
+              <img
+                className="w-[70%] "
+                src="public/decorations/14.png"
+                alt="imagen de una decoracion"
+              />
             </div>
-        
+
             <VerticalRectangle
               image="/decorations/16.png"
               prop=" w-[30%] h-[100px] md:h-[350px] md:w-auto absolute xl:left-0 -left-4 -top-2"
             />
-         
+
             <HorizontalRectangle
               image="/decorations/17.png"
               props="absolute bottom-0 right-0 rotate-90   "
             />
-            
           </section>
         </div>
+        <FrameImage image='public\married\4.jpg'/>
+        <FrameImage image='public\married\2.jpg'/>
+        <FrameImage image='public\married\3.jpg'/>
+        <FrameImage image='public\married\5.jpg'/>
+        <FrameImage image='public\married\6.jpg'/>
+        <FrameImage image='public\married\7.jpg'/>
+        <FrameImage image='public\married\8.jpg'/>
+        <FrameImage image='public\married\9.jpg'/>
+        <FrameImage image='public\married\10.jpg'/>
+        <FrameImage image='public\married\11.jpg'/>
+        <FrameImage image='public\married\12.jpg'/>
       </section>
     </>
   );
 }
 // TODO: Terminar esto: Disenio
-const CompanionsInput = () => {
+const CompanionsInput = ({
+  add, remove, companions = 0
+}) => {
   return (
     <>
       <div className="flex gap-4">
-        <button className="  bg-white p-2 rounded-full  ">
+        <button 
+        onClick={add}
+        className="  bg-white p-2 rounded-full  ">
           <img src="\src\assets\svgs\increment.svg" alt="" />
         </button>
         <p className="text-2xl text-center font-bold  font-cormorant p-0 m-0">
-          01
+          {companions}
         </p>
-        <button className="  bg-white p-2 rounded-full  ">
+        <button
+        onClick={
+          companions > 0 ? remove : null
+        }
+         className="  bg-white p-2 rounded-full  ">
           <img src="\src\assets\svgs\decrement.svg" alt="" />
         </button>
       </div>
+    </>
+  );
+};
+const FrameImage = ({ image }) => {
+  return (
+    <>
+      <section className="relative">
+        <div className="absolute top-4 bottom-4 left-4 right-4 border-2 border-white flex justify-end rounded-xl">
+          <h2 className="p-4 font-pinyon text-3xl text-white">
+            Raquel y angel
+          </h2>
+        </div>
+        <img
+          className="w-full h-full object-center "
+          src={image}
+          alt=""
+        />
+           <HorizontalRectangle
+                            image="/decorations/17.png"
 
-
+              props="absolute bottom-0 right-0 rotate-90   "
+            />
+      </section>
     </>
   );
 };

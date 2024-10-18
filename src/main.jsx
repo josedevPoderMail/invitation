@@ -5,6 +5,6 @@ import './index.css'
 import { Guests } from "./admin/Guests.jsx";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Guests />
+    <App />
   </StrictMode>,
 )

@@ -53,8 +53,10 @@ export const Guests = () => {
                 />
             
                 {/* Esfera con el numero de invitados*/}
-                <div className='absolute bottom-4 right-0 flex flex-col justify-center items-center'>
-                    <div className='h-24 w-24  xl:h-44 xl:w-44 rounded-full flex justify-center items-center  bg-primary m-10'>
+                <div className=' h-auto  absolute bottom-4 right-0 flex flex-col justify-center items-center'>
+                    <div className='h-[70px] w-[70px]  xl:h-44 xl:w-44 rounded-full flex 
+                    p-0 m
+                    justify-center items-center  bg-primary m-10'>
                         <h2 className='text-center text-2xl xl:text-6xl  font-cormorant font-bold text-white'>
                             {
                                 invitations
@@ -75,10 +77,11 @@ export const Guests = () => {
                 image="/decorations/4.png"
               />
               <ContentRoses
-                styles="xl:h-44 xl:w-[120px]  h-[180px] top-[150px]  xl:hidden block  absolute xl:-right-10 xl:top-[35%] -right-8  xl:rotate-45"
+                styles="xl:h-44 xl:w-[120px]  h-[100px] top-[150px]  xl:hidden block  absolute xl:-right-10 xl:top-[35%] right-0  xl:rotate-45"
                 image="/decorations/4.png"
               />
-                <div className=' w-[80%] xl:w-[50%]  h-1/2 xl:h-[70%] flex flex-col justify-center items-center absolute m-auto  left-0 right-0 top-0 bottom-0 ' >
+                <div className=' w-[80%] xl:w-[50%]  h-[60%] xl:h-[70%] flex flex-col justify-center 
+                items-center absolute m-auto  left-0 right-0 top-20 ' >
                     <h3 className='text-primary text-6xl xl:text-[90px] font-pinyon  text-center'>Lista de invitados</h3>
                     <div className='mt-4 flex flex-col p-4 w-full h-full gap-10  justify-center items-center overflow-y-auto'>
 
@@ -101,8 +104,8 @@ export const Guests = () => {
 const CardGuest = ({ nameRepresentative, companions }) => {
     return <>
         <div className='w-full h-44    flex  justify-between items-center gap-5'>
-            <h3 className='font-cormorant text-3xl text-black font-semibold'>{nameRepresentative}</h3>
-            <p className='font-cormorant text-3xl text-black font-semibold'>+{companions}P</p>
+            <h3 className='font-cormorant text-xl xl:text-3xl text-black font-semibold'>{nameRepresentative}</h3>
+            <p className='font-cormorant text-xl xl:text-3xl text-black font-semibold'>+{companions}P</p>
         </div>
     </>
 
