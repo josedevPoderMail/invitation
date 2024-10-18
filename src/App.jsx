@@ -503,11 +503,11 @@ function App() {
           </section>
         </div>
 
-        <div className="w-full h-[1200px] bg-[url('public/decorations/pareja.jpg')]   bg-cover bg-center ">
+        <div className="w-full h-[1200px] bg-[url('/decorations/pareja.jpg')]   bg-cover bg-center ">
           <section className="w-full h-full relative">
             <div
               className="  w-[95%] xl:w-[60%]  flex flex-col justify-center items-center 
-            bg-cover bg-[url('public/decorations/15.png')] 
+            bg-cover bg-[url('/decorations/15.png')] 
             absolute left-0 right-0 m-auto rounded-br-[40px] rounded-bl-[40px] "
             >
               <h2 className="p-0 m-0 text-center text-2xl xl:text-3xl font-cormorant font-bold">

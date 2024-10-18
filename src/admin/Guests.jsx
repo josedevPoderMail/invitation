@@ -86,6 +86,7 @@ export const Guests = () => {
                     <div className='mt-4 flex flex-col p-4 w-full h-full gap-10  justify-center items-center overflow-y-auto'>
 
                         {
+                                invitations.length === 0 ? <h1 className='text-2xl text-black font-cormorant'>No tienes invitados aun</h1> :
                             guests.map(guest => (
                                 <CardGuest key={guest.id} nameRepresentative={guest.name} companions={guest.companions} />
                             ))
