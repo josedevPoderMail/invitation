@@ -467,11 +467,11 @@ function App() {
                       }
                       value={representativeName}
                       className="border-0 bg-primary border-b-2
-                        placeholder:text-white/80 focus:outline-none
+                        placeholder:text-gray-200 focus:outline-none
                           xl:p-2
                         "
                       type="text"
-                      placeholder="Jose Alejandro Cruz Perez"
+                      placeholder="Escribe tu nombre"
                     />
                   </div>
                   {/* Numero de acompaniantes */}
@@ -491,7 +491,7 @@ function App() {
                   onClick={handleSubmit}  
                   disabled={representativeName.length === 0}
                   className={`
-                    ${representativeName.length === 0 ? 'bg-gray-300' : 'bg-primary'}
+                    ${representativeName.length <4 ? 'bg-gray-300' : 'bg-primary'}
                     bg-primary px-10 py-4 text-center font-cormorant
                 rounded-2xl
                 text-xl text-white font-semibold`}
