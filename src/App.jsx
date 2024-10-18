@@ -524,7 +524,7 @@ function App() {
               </p>
               <img
                 className="w-[70%] "
-                src="public/decorations/14.png"
+                src="/decorations/14.png"
                 alt="imagen de una decoracion"
               />
             </div>
@@ -565,8 +565,7 @@ const CompanionsInput = ({
         <button 
         onClick={add}
         className="  bg-white p-2 rounded-full  ">
-          <img src="\src\assets\svgs\increment.svg" alt="" />
-        </button>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A54257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>        </button>
         <p className="text-2xl text-center font-bold  font-cormorant p-0 m-0">
           {companions}
         </p>
@@ -575,8 +574,7 @@ const CompanionsInput = ({
           companions > 0 ? remove : null
         }
          className="  bg-white p-2 rounded-full  ">
-          <img src="\src\assets\svgs\decrement.svg" alt="" />
-        </button>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A54257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus"><path d="M5 12h14"/></svg>        </button>
       </div>
     </>
   );
