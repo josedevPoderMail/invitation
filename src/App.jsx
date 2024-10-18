@@ -540,17 +540,17 @@ function App() {
             />
           </section>
         </div>
-        <FrameImage image='public\married\4.jpg'/>
-        <FrameImage image='public\married\2.jpg'/>
-        <FrameImage image='public\married\3.jpg'/>
-        <FrameImage image='public\married\5.jpg'/>
-        <FrameImage image='public\married\6.jpg'/>
-        <FrameImage image='public\married\7.jpg'/>
-        <FrameImage image='public\married\8.jpg'/>
-        <FrameImage image='public\married\9.jpg'/>
-        <FrameImage image='public\married\10.jpg'/>
-        <FrameImage image='public\married\11.jpg'/>
-        <FrameImage image='public\married\12.jpg'/>
+        <FrameImage image='\married\4.jpg'/>
+        <FrameImage image='\married\2.jpg'/>
+        <FrameImage image='\married\3.jpg'/>
+        <FrameImage image='\married\5.jpg'/>
+        <FrameImage image='\married\6.jpg'/>
+        <FrameImage image='\married\7.jpg'/>
+        <FrameImage image='\married\8.jpg'/>
+        <FrameImage image='\married\9.jpg'/>
+        <FrameImage image='\married\10.jpg'/>
+        <FrameImage image='\married\11.jpg'/>
+        <FrameImage image='\married\12.jpg'/>
       </section>
     </>
   );
