@@ -1,11 +1,13 @@
 import "./App.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { CustomCounter } from "./components/Counter";
 import { Stain } from "./components/Stain";
 import { HorizontalRectangle } from "./components/Horizontalrectangle";
 import { VerticalRectangle } from "./components/VerticalRectangle";
 import { LineStyle } from "./components/LineStyle";
 import { ContentRoses } from "./components/ContentRoses";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import "./App.css";
@@ -24,6 +26,9 @@ function App() {
   const [representativeName, setRepresentativeName] = useState("");
   const [loading, setLoading] = useState(false);
   const app = initializeApp(firebaseConfig);
+useEffect(() => {
+  AOS.init();
+}, [ ])
 
   const db = getFirestore(app);
 
@@ -47,7 +52,7 @@ function App() {
 
   return (
     <>
-      <section className="w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ">
+      <section className={`w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ${loading?'opacity-50 overflow-y-hidden':''}`}>
         <div className=" h-full w-full relative">
           <VerticalRectangle
             image="/decorations/3.png"
@@ -72,7 +77,7 @@ function App() {
             styles="absolute -right-40 top-0 bottom-0 m-auto"
             size="650px"
           />
-          <section className="h-full w-full  flex justify-center items-center ">
+          <section data-aos="fade-left"  className="h-full w-full  flex justify-center items-center ">
             <div className=" h-[75%] w-full md:w-2/5 flex flex-col justify-center items-center  relative ">
               <img
                 className="object-cover h-[40%] xl:h-[70%] "
@@ -149,7 +154,7 @@ function App() {
             styles="absolute -right-40 top-0 bottom-0 m-auto"
             size="650px"
           />
-          <section className="w-full h-full flex flex-col items-center justify-center gap-10 ">
+          <section  data-aos="fade-right" className="w-full h-full flex flex-col items-center justify-center gap-10 ">
             {/* Textos de gracias */}
             <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
               <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">
@@ -213,7 +218,7 @@ function App() {
           />
 
           <div className="w-full h-full flex flex-col justify-center items-center ">
-            <section
+            <section data-aos="fade-left"
               className="w-full h-full xl:w-[60%] xl:h-[80%] flex flex-col 
             xl:gap-10 gap-10 
             justify-center items-center  "
@@ -482,7 +487,7 @@ function App() {
               <div className="w-full h-full relative bg-green-100 "> 
                     <img className=" absolute top-0 left-0 right-0 bottom-0  w-full h-full" src="/decorations/girl.png" alt="" />
                     <div className=" w-full h-full backdrop-blur-lg "></div>
-                    <img className="absolute top-0 left-0 bottom-0 right-0 h-full w-full xl:w-[40%] m-auto  "  src="/decorations/girl.png" alt="" />
+                    <img className="absolute top-0 left-0 bottom-0 right-0 h-full w-full xl:w-[30%] m-auto  "  src="/decorations/girl.png" alt="" />
               </div>
             </div>
             <HorizontalRectangle
@@ -642,8 +647,8 @@ function App() {
         <FrameImage image="\married\7.jpg" />
         <FrameImage image="\married\8.jpg" />
         <FrameImage image="\married\9.jpg" />
-        <FrameImage custom={true} image="\married\10.jpg" />
-        <FrameImage image="\married\11.jpg" />
+        <FrameImage custom={true} image="\married\10.jpg" myStyle='h-[60%]' />
+        <FrameImage custom={true} image="\married\11.jpg" />
         <FrameImage image="\married\12.jpg" />
         {/* Icono y qr de la aplicacion */}
         <div className=" h-full w-full relative">
@@ -786,14 +791,27 @@ const CompanionsInput = ({ add, remove, companions = 0 }) => {
     </>
   );
 };
-const FrameImage = ({ image, custom }) => {
+const FrameImage = ({ image, custom, myStyle}) => {
   return (
     <>
-      <section className="relative ">
-        <div
+      <section className="relative w-full h-full ">
+        <img className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full" src={image} alt="Imagen de la pareja" />
+        <div className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full backdrop-blur-xl z-10"  ></div>
+        <div   className={`absolute top-0 bottom-0 left-0 right-0 m-auto  w-[40%] ${myStyle? myStyle :'h-[90%]'} z-40`}>
+          <ImageBg image={image} positionedText={custom} />
+        </div>
+      </section>
+    </>
+  );
+};
+
+
+const ImageBg =({image, positionedText}) =>{
+  return <>
+  <div
           className={`absolute top-4 bottom-4 left-4 right-4 border-2
          border-white flex  rounded-xl  ${
-           custom ? "justify-start items-end" : "justify-end"
+          positionedText ? "justify-start items-end" : "justify-end"
          }  `}
         >
           <h2 className="p-10 font-pinyon text-3xl xl:text-6xl text-white">
@@ -804,10 +822,7 @@ const FrameImage = ({ image, custom }) => {
         <HorizontalRectangle
           image="/decorations/17.png"
           props="absolute bottom-0 right-0 rotate-90   "
-        />
-      </section>
-    </>
-  );
-};
+        /></>
+}
 
 export default App;
