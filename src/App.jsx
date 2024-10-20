@@ -895,7 +895,7 @@ const ImageBg = ({ image, positionedText }) => {
          }  `}
       >
         <h2 className="p-10 font-pinyon text-3xl xl:text-6xl text-white">
-          Raquel y angel
+          Raquel y Angel
         </h2>
       </div>
       <img
