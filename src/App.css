@@ -57,3 +57,46 @@
       
   }
 }
+
+
+
+/* AudioStyles.css */
+
+#music-bg {
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+  background-color: #a5425781;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+}
+ 
+@media screen and (max-width: 600px) {
+  #music-bg {
+    width: 80%;
+  }
+  
+}
+#music-bg::-webkit-media-controls-enclosure {
+  background-color: #a5425749;
+}
+
+#music-bg::-webkit-media-controls-play-button,
+#music-bg::-webkit-media-controls-volume-slider,
+#music-bg::-webkit-media-controls-current-time-display,
+#music-bg::-webkit-media-controls-time-remaining-display {
+  color: white;
+}
+
+#music-bg:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+#music-bg:focus {
+  outline: none;
+}

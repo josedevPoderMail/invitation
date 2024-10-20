@@ -7,7 +7,7 @@ import { HorizontalRectangle } from "./components/Horizontalrectangle";
 import { VerticalRectangle } from "./components/VerticalRectangle";
 import { LineStyle } from "./components/LineStyle";
 import { ContentRoses } from "./components/ContentRoses";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import "./App.css";
@@ -58,9 +58,11 @@ function App() {
         AOS.refresh();
       });
     }
-    const audio = document.getElementById("music-bg");
+   const audio = document.getElementById('music-bg');
 
+   
     return () => {
+     
       if (scrollContainer) {
         scrollContainer.removeEventListener("scroll", () => {
           AOS.refresh();
@@ -68,53 +70,19 @@ function App() {
       }
     };
   }, []);
-  const audioRef = useRef(null);
-  const containerRef = useRef(null);
-
-  const handleScroll = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  };
-  const handleInteraction = () => {
-    if (audioRef.current && audioRef.current.paused) {
-      audioRef.current.play().catch(error => {
-        console.log("Reproducción bloqueada: ", error);
-      });
-    }
-  };
-  useEffect(() => {
-    const container = containerRef.current;
-
-    // Agregar eventos de scroll y touchstart/touchmove
-    if (container) {
-      container.addEventListener("scroll", handleInteraction);
-      container.addEventListener("touchstart", handleInteraction);  // Detectar toque inicial
-      container.addEventListener("touchmove", handleInteraction);   // Detectar movimiento táctil
-    }
-
-    // Limpiar los eventos cuando el componente se desmonte
-    return () => {
-      if (container) {
-        container.removeEventListener("scroll", handleInteraction);
-        container.removeEventListener("touchstart", handleInteraction);
-        container.removeEventListener("touchmove", handleInteraction);
-      }
-    };
-  }, []);
 
   return (
     <>
       <section
-        ref={containerRef}
         id="container-scroll"
         className={`  w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ${
           loading ? "  opacity-50 overflow-y-hidden" : ""
         }`}
       >
-        <div className=" hidden fixed left-0 right-0 top-0 m-auto z-20  ">
-          <audio ref={audioRef} preload="auto">
+        <div className="  fixed left-0 right-0 top-2 m-auto z-20 flex justify-center  ">
+          <audio id="music-bg" controls autoPlay >
             <source src="/music/musica.mp3" type="audio/mpeg"></source>
+            Tu navegador no soporta la reproducción de audio.
           </audio>
         </div>
         <div className=" h-full w-full relative">
