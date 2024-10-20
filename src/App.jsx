@@ -1,6 +1,6 @@
 import "./App.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { CustomCounter } from "./components/Counter";
 import { Stain } from "./components/Stain";
 import { HorizontalRectangle } from "./components/Horizontalrectangle";
@@ -26,9 +26,6 @@ function App() {
   const [representativeName, setRepresentativeName] = useState("");
   const [loading, setLoading] = useState(false);
   const app = initializeApp(firebaseConfig);
-useEffect(() => {
-  AOS.init();
-}, [ ])
 
   const db = getFirestore(app);
 
@@ -49,10 +46,49 @@ useEffect(() => {
   const removeCompanion = () => {
     setNumberCompanions(numberCompanions - 1);
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+
+    const scrollContainer = document.getElementById("container-scroll");
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", () => {
+        AOS.refresh();
+      });
+    }
+   const audio = document.getElementById('music-bg');
+
+   scrollContainer.addEventListener('scroll', () => {
+       audio.play();
+   }, { once: true }); 
+    return () => {
+      scrollContainer.removeEventListener('scroll', () => {
+            audio.play();
+        });
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", () => {
+          AOS.refresh();
+        });
+      }
+    };
+  }, []);
 
   return (
     <>
-      <section className={`w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ${loading?'opacity-50 overflow-y-hidden':''}`}>
+      <section
+        id="container-scroll"
+        className={`  w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ${
+          loading ? "  opacity-50 overflow-y-hidden" : ""
+        }`}
+      >
+        <div className=" hidden fixed left-0 right-0 top-0 m-auto z-20  ">
+          <audio id="music-bg" controls autoPlay >
+            <source src="/music/musica.mp3" type="audio/mpeg"></source>
+            Tu navegador no soporta la reproducción de audio.
+          </audio>
+        </div>
         <div className=" h-full w-full relative">
           <VerticalRectangle
             image="/decorations/3.png"
@@ -77,11 +113,14 @@ useEffect(() => {
             styles="absolute -right-40 top-0 bottom-0 m-auto"
             size="650px"
           />
-          <section data-aos="fade-left"  className="h-full w-full  flex justify-center items-center ">
+          <section
+            data-aos="fade-left"
+            className="h-full w-full  flex justify-center items-center "
+          >
             <div className=" h-[75%] w-full md:w-2/5 flex flex-col justify-center items-center  relative ">
               <img
                 className="object-cover h-[40%] xl:h-[70%] "
-                src="/decorations/1.png"
+                src="/decorations/22.png"
                 alt="Imagen de los novios, sosteniendo las manos uno al otro"
               />
               <div className="flex flex-col  items-center justify-center text-center mt-4">
@@ -125,7 +164,7 @@ useEffect(() => {
                 image="/decorations/4.png"
               />
               <ContentRoses
-                styles="xl:h-44 xl:w-[120px]  h-[180px] bottom-[100px]    absolute xl:-right-10 xl:top-[35%] -right-8  xl:rotate-45"
+                styles="xl:h-44 xl:w-[120px]  h-[180px]   bottom-[100px]    absolute xl:-right-10 xl:top-[35%] -right-10 top-40  xl:rotate-45"
                 image="/decorations/4.png"
               />
             </div>
@@ -154,7 +193,10 @@ useEffect(() => {
             styles="absolute -right-40 top-0 bottom-0 m-auto"
             size="650px"
           />
-          <section  data-aos="fade-right" className="w-full h-full flex flex-col items-center justify-center gap-10 ">
+          <section
+            data-aos="fade-right"
+            className="w-full h-full flex flex-col items-center justify-center gap-10 "
+          >
             {/* Textos de gracias */}
             <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
               <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">
@@ -218,7 +260,8 @@ useEffect(() => {
           />
 
           <div className="w-full h-full flex flex-col justify-center items-center ">
-            <section data-aos="fade-left"
+            <section
+              data-aos="fade-left"
               className="w-full h-full xl:w-[60%] xl:h-[80%] flex flex-col 
             xl:gap-10 gap-10 
             justify-center items-center  "
@@ -271,7 +314,10 @@ useEffect(() => {
           </div>
           <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0  flex justify-center">
             {/* Informacion de la ubicacion */}
-            <section className="w-[90%] xl:w-[60%] h-full  flex flex-col justify-center items-center gap-10 py-4">
+            <section
+              data-aos="fade-right"
+              className="w-[90%] xl:w-[60%] h-full  flex flex-col justify-center items-center gap-10 py-4"
+            >
               <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl text-center  tracking-tighter">
                 Lugar del <br className="xl:hidden block" /> evento
               </h2>
@@ -335,7 +381,10 @@ useEffect(() => {
               styles="absolute -right-40 top-0 -bottom-24 m-auto"
               size="400px"
             />
-            <div className="w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+            <div
+              data-aos="fade-left"
+              className=" w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center"
+            >
               {/* horarios e iconos */}
               <section className=" h-[70%] xl:h-[70%]  w-full xl:w-1/2  flex flex-col gap-10 justify-evenly items-center ">
                 <h2 className="font-pinyon text-primary xl:text-[90px] text-[70px] ">
@@ -386,7 +435,10 @@ useEffect(() => {
               styles="absolute -right-40 top-0 -bottom-24 m-auto"
               size="400px"
             />
-            <div className="w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center">
+            <div
+              data-aos="fade-right"
+              className="w-full h-full  absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center"
+            >
               {/* horarios e iconos */}
               <section className=" h-[70%] xl:h-[70%]  w-full xl:w-1/2  flex flex-col gap-10 justify-evenly items-center ">
                 <h3 className="font-cormorant text-black text-5xl text-center font-semibold">
@@ -428,7 +480,10 @@ useEffect(() => {
               {/* Horarios  */}
               <section className="w-full xl:w-[70%]   relative   overflow-hidden  flex xl:flex-row flex-col gap-10 ">
                 {/* Horario de la ceremonia */}
-                <div className="w-full  xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center">
+                <div
+                  data-aos="fade-right"
+                  className="w-full  xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center"
+                >
                   <Stain styles="absolute top-20" size="150px" />
                   <div className="text-center tras text-2xl xl:text-4xl font-cormorant   font-semibold ">
                     <h2>Brindys</h2>
@@ -441,7 +496,10 @@ useEffect(() => {
                   />
                 </div>
                 {/* Horario del evento */}
-                <div className="w-full xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center">
+                <div
+                  data-aos="fade-left"
+                  className="w-full xl:h-auto relative  h-full flex flex-col justify-center gap-10 items-center"
+                >
                   <Stain styles="absolute  top-20" size="150px" />
                   <div className="text-center  text-2xl xl:text-4xl font-cormorant   font-semibold ">
                     <h2>Convivio</h2>
@@ -467,9 +525,9 @@ useEffect(() => {
         </div>
         {/* Horarios de cremonia y convivio */}
         <div className="w-full h-full ">
-          <section className="w-full h-full relative">
+          <section data-aos="fade-top" className=" w-full h-full relative">
             <div
-              className='h-40 xl:w-[50%] w-[90%]  m-auto
+              className='h-40 xl:w-[50%] w-[95%]  m-auto
             z-20 bg-[url("/decorations/bg-orange.png")] bg-center bg-cover
             absolute left-0 right-0 top-10 flex items-center justify-center '
             >
@@ -479,15 +537,23 @@ useEffect(() => {
             </div>
 
             <div
-              className=' 
+              className=" 
              bg-center bg-cover bg-no-repeat w-full h-full absolute top-0
             z-0
-             bottom-0 right-0 left-0 flex items-center justify-center'
+             bottom-0 right-0 left-0 flex items-center justify-center"
             >
-              <div className="w-full h-full relative bg-green-100 "> 
-                    <img className=" absolute top-0 left-0 right-0 bottom-0  w-full h-full" src="/decorations/girl.png" alt="" />
-                    <div className=" w-full h-full backdrop-blur-lg "></div>
-                    <img className="absolute top-0 left-0 bottom-0 right-0 h-full w-full xl:w-[30%] m-auto  "  src="/decorations/girl.png" alt="" />
+              <div className="w-full h-full relative bg-green-100 ">
+                <img
+                  className=" absolute top-0 left-0 right-0 bottom-0  w-full h-full"
+                  src="/decorations/girl.png"
+                  alt=""
+                />
+                <div className=" w-full h-full backdrop-blur-lg "></div>
+                <img
+                  className="absolute top-0 left-0 bottom-0 right-0 h-full w-full xl:w-[30%] m-auto  "
+                  src="/decorations/girl.png"
+                  alt=""
+                />
               </div>
             </div>
             <HorizontalRectangle
@@ -533,7 +599,10 @@ useEffect(() => {
                   image="/decorations/4.png"
                 />
                 {/* Titulo de la secion y mensaje*/}
-                <div className="flex flex-col gap-2 text-center">
+                <div
+                  data-aos="fade-right"
+                  className="flex flex-col gap-2 text-center"
+                >
                   <h2 className="font-pinyon text-primary xl:text-[90px] text-6xl">
                     Estas invitado
                   </h2>
@@ -647,7 +716,7 @@ useEffect(() => {
         <FrameImage image="\married\7.jpg" />
         <FrameImage image="\married\8.jpg" />
         <FrameImage image="\married\9.jpg" />
-        <FrameImage custom={true} image="\married\10.jpg" myStyle='h-[60%]' />
+        <FrameImage custom={true} image="\married\10.jpg" myStyle="h-[60%]" />
         <FrameImage custom={true} image="\married\11.jpg" />
         <FrameImage image="\married\12.jpg" />
         {/* Icono y qr de la aplicacion */}
@@ -678,11 +747,19 @@ useEffect(() => {
           <section className=" h-full w-full  flex justify-center items-center ">
             <div className="xl:w-[70%] w-[90%] h-auto xl:h-[90%] flex xl:flex-row flex-col gap-6 justify-center items-center p-6">
               <div className="flex flex-col gap-4 xl:w-1/2 w-full items-center text-center  p-4 rounded-lg">
-                <img
-                  className="h-32 w-32 xl:h-40 xl:w-40 object-cover"
-                  src="/decorations/dots.webp"
-                  alt="Dots Memories App"
-                />
+                <p className="text-black font-cormorant text-md  xl:text-3xl">
+                  Toca el icono para descargar la app
+                </p>
+                <a
+                  target="_blank"
+                  href="https://play.google.com/store/apps/details?id=social.onelife"
+                >
+                  <img
+                    className="h-32 w-32 xl:h-40 xl:w-40 object-cover"
+                    src="/decorations/dots.webp"
+                    alt="Dots Memories App"
+                  />
+                </a>
                 <p className="text-black font-cormorant text-xl  xl:text-3xl">
                   Descarga la app: <strong>Dots Memories</strong> y compártenos
                   tus mejores momentos con fotografías.
@@ -724,10 +801,10 @@ useEffect(() => {
             styles="absolute -right-40 top-0 bottom-0 m-auto"
             size="650px"
           />
-          <section className="h-full w-full  flex justify-center items-center ">
-            <div className=" h-[75%] w-full md:w-2/5 flex flex-col justify-center items-center  relative ">
+          <section className=" h-full w-full  flex justify-center items-center ">
+            <div className="  h-[80%] w-full md:w-2/5 flex flex-col justify-center items-center  relative ">
               <img
-                className="object-cover h-[40%] xl:h-[70%] "
+                className="object-cover h-[50%] xl:h-[70%] "
                 src="/decorations/22.png"
                 alt="Imagen de los novios, sosteniendo las manos uno al otro"
               />
@@ -791,13 +868,21 @@ const CompanionsInput = ({ add, remove, companions = 0 }) => {
     </>
   );
 };
-const FrameImage = ({ image, custom, myStyle}) => {
+const FrameImage = ({ image, custom, myStyle }) => {
   return (
     <>
       <section className="relative w-full h-full ">
-        <img className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full" src={image} alt="Imagen de la pareja" />
-        <div className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full backdrop-blur-xl z-10"  ></div>
-        <div   className={`absolute top-0 bottom-0 left-0 right-0 m-auto  w-[40%] ${myStyle? myStyle :'h-[90%]'} z-40`}>
+        <img
+          className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full"
+          src={image}
+          alt="Imagen de la pareja"
+        />
+        <div className=" absolute top-0 bottom-0 left-0 right-0  w-full h-full backdrop-blur-xl z-10"></div>
+        <div
+          className={`absolute top-0 bottom-0 left-0 right-0 m-auto w-full  xl:w-[35%] ${
+            myStyle ? myStyle : "h-[80%]"
+          } z-40`}
+        >
           <ImageBg image={image} positionedText={custom} />
         </div>
       </section>
@@ -805,24 +890,30 @@ const FrameImage = ({ image, custom, myStyle}) => {
   );
 };
 
-
-const ImageBg =({image, positionedText}) =>{
-  return <>
-  <div
-          className={`absolute top-4 bottom-4 left-4 right-4 border-2
-         border-white flex  rounded-xl  ${
-          positionedText ? "justify-start items-end" : "justify-end"
+const ImageBg = ({ image, positionedText }) => {
+  return (
+    <>
+      <div
+        className={`absolute top-4 bottom-4 left-4 right-4 border-2
+         border-white flex  rounded-xl overflow-hidden  ${
+           positionedText ? "justify-start items-end" : "justify-end"
          }  `}
-        >
-          <h2 className="p-10 font-pinyon text-3xl xl:text-6xl text-white">
-            Raquel y angel
-          </h2>
-        </div>
-        <img className="w-full h-full object-center " src={image} alt="" />
-        <HorizontalRectangle
-          image="/decorations/17.png"
-          props="absolute bottom-0 right-0 rotate-90   "
-        /></>
-}
+      >
+        <h2 className="p-10 font-pinyon text-3xl xl:text-6xl text-white">
+          Raquel y angel
+        </h2>
+      </div>
+      <img
+        className=" rounded-xl w-full h-full object-center "
+        src={image}
+        alt=""
+      />
+      <HorizontalRectangle
+        image="/decorations/17.png"
+        props="absolute bottom-0 right-0 rotate-90   "
+      />
+    </>
+  );
+};
 
 export default App;
