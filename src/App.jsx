@@ -79,7 +79,7 @@ function App() {
           loading ? "  opacity-50 overflow-y-hidden" : ""
         }`}
       >
-        <div className="  fixed left-0 right-0 top-2 m-auto z-20 flex justify-center  ">
+        <div className="  fixed left-0 right-0 top-2 m-auto z-50 flex justify-center  ">
           <audio id="music-bg" controls autoPlay >
             <source src="/music/musica.mp3" type="audio/mpeg"></source>
             Tu navegador no soporta la reproducción de audio.
