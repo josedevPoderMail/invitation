@@ -7,7 +7,7 @@ import { HorizontalRectangle } from "./components/Horizontalrectangle";
 import { VerticalRectangle } from "./components/VerticalRectangle";
 import { LineStyle } from "./components/LineStyle";
 import { ContentRoses } from "./components/ContentRoses";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import "./App.css";
@@ -58,15 +58,9 @@ function App() {
         AOS.refresh();
       });
     }
-   const audio = document.getElementById('music-bg');
+    const audio = document.getElementById("music-bg");
 
-   scrollContainer.addEventListener('scroll', () => {
-       audio.play();
-   }, { once: true }); 
     return () => {
-      scrollContainer.removeEventListener('scroll', () => {
-            audio.play();
-        });
       if (scrollContainer) {
         scrollContainer.removeEventListener("scroll", () => {
           AOS.refresh();
@@ -74,19 +68,40 @@ function App() {
       }
     };
   }, []);
+  const audioRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const handleScroll = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <>
       <section
+        ref={containerRef}
         id="container-scroll"
         className={`  w-screen h-screen overflow-x-hidden   bg-[url(/background.png)] bg-center bg-contain relative ${
           loading ? "  opacity-50 overflow-y-hidden" : ""
         }`}
       >
         <div className=" hidden fixed left-0 right-0 top-0 m-auto z-20  ">
-          <audio id="music-bg" controls autoPlay >
+          <audio ref={audioRef} preload="auto">
             <source src="/music/musica.mp3" type="audio/mpeg"></source>
-            Tu navegador no soporta la reproducción de audio.
           </audio>
         </div>
         <div className=" h-full w-full relative">
@@ -716,7 +731,7 @@ function App() {
         <FrameImage image="\married\7.jpg" />
         <FrameImage image="\married\8.jpg" />
         <FrameImage image="\married\9.jpg" />
-        <FrameImage custom={true} image="\married\10.jpg" myStyle="h-[60%]" />
+        <FrameImage custom={true} image="\married\10.jpg" myStyle="h-[40%]" />
         <FrameImage custom={true} image="\married\11.jpg" />
         <FrameImage image="\married\12.jpg" />
         {/* Icono y qr de la aplicacion */}
@@ -820,7 +835,6 @@ function App() {
     </>
   );
 }
-// TODO: Terminar esto: Disenio
 const CompanionsInput = ({ add, remove, companions = 0 }) => {
   return (
     <>

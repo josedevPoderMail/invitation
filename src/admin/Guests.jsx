@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { collection, getDoc, getDocs, getFirestore } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { VerticalRectangle } from '../components/VerticalRectangle';
-import { HorizontalRectangle } from '../components/Horizontalrectangle';
 import { Stain } from '../components/Stain';
 import { ContentRoses } from '../components/ContentRoses';
 const firebaseConfig = {
@@ -83,7 +82,7 @@ export const Guests = () => {
                 <div className=' w-[80%] xl:w-[50%]  h-[60%] xl:h-[70%] flex flex-col justify-center 
                 items-center absolute m-auto  left-0 right-0 top-20 ' >
                     <h3 className='text-primary text-6xl xl:text-[90px] font-pinyon  text-center'>Lista de invitados</h3>
-                    <div className='mt-4 flex flex-col p-4 w-full h-full gap-10  justify-center items-center overflow-y-auto'>
+                    <div className='mt-4 flex flex-col p-4 w-full h-full   justify-center items-center overflow-y-auto'>
 
                         {
                                 invitations.length === 0 ? <h1 className='text-2xl text-black font-cormorant'>No tienes invitados aun</h1> :
@@ -104,7 +103,7 @@ export const Guests = () => {
 
 const CardGuest = ({ nameRepresentative, companions }) => {
     return <>
-        <div className='w-full h-44    flex  justify-between items-center gap-5'>
+        <div className='w-full h-44 mt-2    flex  justify-between items-center gap-5'>
             <h3 className='font-cormorant text-xl xl:text-3xl text-black font-semibold'>{nameRepresentative}</h3>
             <p className='font-cormorant text-xl xl:text-3xl text-black font-semibold'>+{companions}P</p>
         </div>
