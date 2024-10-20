@@ -894,7 +894,7 @@ const ImageBg = ({ image, positionedText }) => {
            positionedText ? "justify-start items-end" : "justify-end"
          }  `}
       >
-        <h2 className="p-10 font-pinyon text-3xl xl:text-6xl text-white">
+        <h2 className="p-10 font-pinyon text-3xl xl:text-5xl text-white">
           Raquel y Angel
         </h2>
       </div>
@@ -903,10 +903,14 @@ const ImageBg = ({ image, positionedText }) => {
         src={image}
         alt=""
       />
-      <HorizontalRectangle
-        image="/decorations/17.png"
-        props="absolute bottom-0 right-0 rotate-90   "
-      />
+ 
+      <div className={`w-1/2 md:h-[200px] md:w-auto   absolute bottom-0 right-0 rotate-90 `}>
+        <img
+          className="h-full w-full object-cover "
+          src="/decorations/17.png"	
+          alt="Imagen de una rosa como decoracion"
+        />
+      </div>
     </>
   );
 };
