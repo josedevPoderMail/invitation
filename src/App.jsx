@@ -76,16 +76,29 @@ function App() {
       audioRef.current.play();
     }
   };
+  const handleInteraction = () => {
+    if (audioRef.current && audioRef.current.paused) {
+      audioRef.current.play().catch(error => {
+        console.log("Reproducción bloqueada: ", error);
+      });
+    }
+  };
   useEffect(() => {
     const container = containerRef.current;
 
+    // Agregar eventos de scroll y touchstart/touchmove
     if (container) {
-      container.addEventListener("scroll", handleScroll);
+      container.addEventListener("scroll", handleInteraction);
+      container.addEventListener("touchstart", handleInteraction);  // Detectar toque inicial
+      container.addEventListener("touchmove", handleInteraction);   // Detectar movimiento táctil
     }
 
+    // Limpiar los eventos cuando el componente se desmonte
     return () => {
       if (container) {
-        container.removeEventListener("scroll", handleScroll);
+        container.removeEventListener("scroll", handleInteraction);
+        container.removeEventListener("touchstart", handleInteraction);
+        container.removeEventListener("touchmove", handleInteraction);
       }
     };
   }, []);
