@@ -728,11 +728,11 @@ function App() {
           />
           <HorizontalRectangle
             image="/decorations/19.png"
-            props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3  "
+            props="absolute bottom-0 -left-10 md:-left-10  md:-bottom-3 hidden xl:block  "
           />
           <HorizontalRectangle
             image="/decorations/20.png"
-            props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3   "
+            props="absolute bottom-0 -right-10 md:-right-10 md:-bottom-3 hidden xl:block  "
           />
           <Stain styles="absolute left-20 -top-20 " size="200px" />
           <Stain styles="absolute -left-[200px] bottom-[10px] " size="500px" />
