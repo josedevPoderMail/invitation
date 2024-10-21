@@ -191,10 +191,10 @@ function App() {
           />
           <section
             data-aos="fade-right"
-            className="w-full h-full flex flex-col items-center justify-center gap-10 "
+            className="w-full h-full flex flex-col items-center justify-center gap-2 xl:gap-10 "
           >
             {/* Textos de gracias */}
-            <div className="w-[90%] xl:w-[60%]  flex flex-col items-center justify-center gap-5">
+            <div className="w-[90%] xl:w-[60%]   flex flex-col items-center justify-center gap-5">
               <h2 className="font-pinyon text-center text-primary/60 font-semibold text-3xl xl:text-6xl ">
                 En este día especial <br /> te invitamos a celebrar nuestra
                 unión
@@ -203,9 +203,9 @@ function App() {
                 Con la bendición de Dios y de nuestros <br /> padres
               </p>
             </div>
-            <div className="w-full xl:w-[60%]  flex flex-col gap-10 justify-evenly items-center ">
+            <div className="  w-full xl:w-[60%]  flex flex-col gap-2 justify-evenly items-center ">
               {/* Nombre de los padres de la novia */}
-              <div className="w-full text-center">
+              <div className="  w-full text-center">
                 <h2 className="my-2 font-cormorant font-bold text-3xl xl:text-5xl text-black/80">
                   Padres de la novia
                 </h2>
