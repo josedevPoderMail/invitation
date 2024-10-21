@@ -528,7 +528,7 @@ function App() {
             absolute left-0 right-0 top-10 flex items-center justify-center '
             >
               <h2 className="font-cormorant text-xl  xl:text-4xl text-center text-white font-bold">
-                Sugerimos vestimenta color <br /> Terracota exclusiva para dama
+                Sugerimos vestimenta color <br /> Terracota exclusiva para damas
               </h2>
             </div>
 
@@ -605,6 +605,7 @@ function App() {
                   <p className="text-black font-cormorant xl:text-2xl text-md font-semibold">
                     Estaremos muy agradecios que confirmen su asistencia <br />
                     para poder asignarles mesa junto a sus familiares
+                    <strong>Por favor confirma tu asistencia antes del 06-Nov-2024</strong>
                   </p>
                 </div>
                 {/* Formulario de invitados */}
@@ -713,7 +714,7 @@ function App() {
         <FrameImage image="\married\8.jpg" />
         <FrameImage image="\married\9.jpg" />
         <FrameImage custom={true} image="\married\10.jpg" myStyle="h-[40%]" />
-        <FrameImage custom={true} image="\married\11.jpg" />
+        {/* <FrameImage custom={true} image="\married\11.jpg" /> */}
         <FrameImage image="\married\12.jpg" />
         {/* Icono y qr de la aplicacion */}
         <div className=" h-full w-full relative">
@@ -760,6 +761,7 @@ function App() {
                   Descarga la app: <strong>Dots Memories</strong> y compártenos
                   tus mejores momentos con fotografías.
                 </p>
+                
               </div>
 
               <div className="flex flex-col gap-4 xl:w-1/2 w-full items-center text-center  p-4 rounded-lg">
@@ -768,6 +770,7 @@ function App() {
                   src="/decorations/qr.png"
                   alt="Dots Memories App"
                 />
+                <span> Escanea el QR o usa el código para unirte a mi Álbum <br /> <strong>xzBOOoWi</strong></span>
               </div>
             </div>
           </section>
