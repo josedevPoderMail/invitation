@@ -604,8 +604,8 @@ function App() {
                   </h2>
                   <p className="text-black font-cormorant xl:text-2xl text-md font-semibold">
                     Estaremos muy agradecios que confirmen su asistencia <br />
-                    para poder asignarles mesa junto a sus familiares
-                    <strong>Por favor confirma tu asistencia antes del 06-Nov-2024</strong>
+                    para poder asignarles mesa junto a sus familiares.
+                    <br /> <strong> Por favor confirma tu asistencia antes del 06-Nov-2024</strong>
                   </p>
                 </div>
                 {/* Formulario de invitados */}
