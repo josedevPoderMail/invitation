@@ -41,7 +41,13 @@ function App() {
   };
 
   const addCompanion = () => {
-    setNumberCompanions(numberCompanions + 1);
+    if (numberCompanions <3) {
+      
+      setNumberCompanions(numberCompanions + 1);
+    }
+    else{
+      alert('No puedes agregar más de 3 acompañantes')
+    }
   };
   const removeCompanion = () => {
     setNumberCompanions(numberCompanions - 1);
